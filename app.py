@@ -59,7 +59,7 @@ def parser():
             createtables.createtables(connection)
             createnamestable.createnamestable(connection, names1, names2)
             end, start, stats = infoaboutfields.infoaboutfields(connection)
-            mes1 = 'БД создана заново'
+            mes1 = 'БД создана заново '
         else:
             file = request.files['file']
             filename = secure_filename(file.filename)
