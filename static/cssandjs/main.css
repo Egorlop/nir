@@ -1,0 +1,129 @@
+
+.main-area{
+    max-width: 80%;
+    margin: 0 auto;
+}
+header {
+    background: #2d3039;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-family: 'Literata', sans-serif;
+    padding: 18px;
+    }
+a.text:active,
+a.text:hover,
+a.text {
+    text-decoration: none;
+    color: white;
+    padding: 30px;
+    font-size: 18px;
+}
+::before
+::after {
+    box-sizing: border-box;
+}
+
+.top-text{
+    margin: 0 auto 0;
+    color: #000000;
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Literata', sans-serif;
+    padding-bottom: 20px;
+    padding-top: 30px;
+}
+.bot-text{
+    margin: 0 auto 0;
+    color: #000000;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Literata', sans-serif;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+body {
+    font-family: 'Literata', sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    padding: 0;
+}
+
+.wrapper{
+    max-width: 100%;
+    margin: 0 auto;
+}
+.accordion{}
+.accordion-item{
+    position:relative;
+    padding-top: 10px;
+    font-weight: bold;
+}
+.accordion-item_input{
+    position:absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+}
+.accordion-item_trigger_true{
+    display: block;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 7px;
+    background-color: #30e030;
+    font-weight: bold;
+}
+.accordion-item_trigger_false{
+    display: block;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 7px;
+    background-color: #ff5d5d;
+    font-weight: bold;
+}
+.accordion-item_content{
+    padding: 0px;
+    border: 0px solid black;
+    border-top: none;
+    display: none;
+    border-radius: 7px;
+    background-color:#30e030;
+    font-weight: normal;
+}
+.accordion-item_input:checked ~ .accordion-item_trigger{
+}
+.accordion-item_input:checked ~ .accordion-item_content{
+    display: block;
+}
+.table {
+	width: 100%;
+	border: 1px solid #dddddd;
+	border-collapse: collapse;
+}
+.table th {
+	font-weight: bold;
+	padding: 20px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+.table td {
+    text-align:center;
+	border: 1px solid #dddddd;
+	padding: 5px;
+
+}
+.table tbody tr:nth-child(odd){
+	background: #fff;
+}
+.table tbody tr:nth-child(even){
+	background: #F7F7F7;
+}
+
+.form{
+    padding-top: 30px;
+    font-family: 'Literata', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+}
+

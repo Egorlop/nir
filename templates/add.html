@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="top-text">Добавление данных в базу данных</div>
+    <div class="main-area">
+      <form enctype="multipart/form-data" style = 'padding-top: 10px'method="post">
+       <p><input type="file" name="file"><strong>{{ mes3 }}</strong></p>
+       <p><button type= "submit" >Добавить в БД</button>
+       <button id = 'button1' value="button1" name = 'button1' type= "submit" >Удалить из БД</button>
+       <button id = 'button2' value="button2" name = 'button2' type= "submit" >Пересобрать БД</button>
+       <strong>  &#160&#160 {{ mes1 }}</strong></p>
+      </form><br>
+        <p>Текущее состояние парсинга: <strong>{{ mes2 }}</strong><br>
+        Всего записей в БД: {{ end }}<br>
+        Всего станций в БД: {{ stats }}<br></p>
+    </div>
+
+{% endblock %}

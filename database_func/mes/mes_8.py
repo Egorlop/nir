@@ -1,0 +1,124 @@
+def parse_mes_8(data):
+    offset = 0
+    mass = {}
+    buf = {}
+    buf1 = {}
+    names = {}
+    mass['СЧОБЛ'] = int(data[offset], 16)
+    offset += 1
+    mass['СЧООЯ'] = int(data[offset], 16)
+    offset += 1
+    for i in range(mass['СЧОБЛ']):
+        if len(data) > offset + 1:
+            mass['ОБДНЧИСР' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБДНМСЛР' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ОБДНМСЛР)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            for k in range(5):
+                mass['ОБДНВИДВ'+ str(i + 1) + str(k + 1)] = int(data[offset], 16)
+                offset += 1
+                mass['(ОБДНВИДВ)'+ str(i + 1) + str(k + 1)] = int(data[offset], 16)
+                offset += 1
+            mass['ОБДВРЕНВ' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ОБДВРЕНВ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБДПРСТН' + str(i + 1)] = int(data[offset]+data[offset+1], 16)
+            offset += 2
+            mass['(ОБДПРСТН)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБДПРОДВ' + str(i + 1)] = int(data[offset]+data[offset+1], 16)
+            offset += 2
+            mass['(ОБДПРОДВ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБДТЕМНМ' + str(i + 1)] = int(data[offset]+data[offset+1], 16)
+            offset += 2
+            mass['(ОБДТЕМНМ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБВЕТННМ' + str(i + 1)] = int(data[offset]+data[offset+1], 16)
+            offset += 2
+            mass['(ОБВЕТННМ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1 #10
+            mass['ОБВЕТСНМ' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ОБВЕТСНМ)Q' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ОБВЕТСНМ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБДТЕМММ' + str(i + 1)] = int(data[offset] + data[offset + 1], 16)
+            offset += 2
+            mass['(ОБДТЕМММ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБВЕТНММ' + str(i + 1)] = int(data[offset] + data[offset + 1], 16)
+            offset += 2
+            mass['(ОБВЕТНММ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБВЕТСММ' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ОБВЕТСММ)Q' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ОБВЕТСММ)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1 #20
+            mass['ОБДПРПЕР' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ОБДПРПЕР)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ОБДПРД1Ч' + str(i + 1)] = int(data[offset] + data[offset + 1], 16)
+            offset += 2
+            mass['(ОБДПРД1Ч)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            for t in range(6):
+                mass['ОБДНДИАМ'+ str(i + 1) + str(t+ 1)] = int(data[offset] + data[offset + 1], 16)
+                offset += 2
+                mass['(ОБДНДИАМ)'+ str(i + 1) + str(t + 1)] = int(data[offset], 16)
+                offset += 1
+                mass['ОБДТОЛЩМ'+ str(i + 1) + str(t + 1)] = int(data[offset] + data[offset + 1], 16)
+                offset += 2
+                mass['(ОБДТОЛЩМ)'+ str(i + 1) + str(t + 1)] = int(data[offset], 16)
+                offset += 1
+                mass['ОБДНМАСТ'+ str(i + 1) + str(t + 1)] = int(data[offset] + data[offset + 1], 16)
+                offset += 2
+                mass['(ОБДНМАСТ)'+ str(i + 1) + str(t + 1)] = int(data[offset], 16)
+                offset += 1
+        else:
+            break
+    if len(data) > offset + 1:
+        for i in range(mass['СЧООЯ']):
+            mass['ООЯЧИСЛН' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯВРЕМН' + str(i + 1)] = int(data[offset] + data[offset + 1], 16)
+            offset += 2
+            mass['(ООЯВРЕМН)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯЧИСЛК' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ООЯЧИСЛК)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯВРЕМК' + str(i + 1)] = int(data[offset] + data[offset + 1], 16)
+            offset += 2
+            mass['(ООЯВРЕМК)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯВИД' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ООЯВИД)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯXАР1' + str(i + 1)] = int(data[offset] + data[offset + 1], 16)
+            offset += 2
+            mass['(ООЯXАР1)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯXАР2' + str(i + 1)] = int(data[offset] + data[offset + 1], 16)
+            offset += 2
+            mass['(ООЯXАР2)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯПРПЕР' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['(ООЯПРПЕР)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+            mass['ООЯПРО1Ч' + str(i + 1)] = int(data[offset] + data[offset + 1] + data[offset + 2], 16)
+            offset += 3
+            mass['(ООЯПРО1Ч)' + str(i + 1)] = int(data[offset], 16)
+            offset += 1
+    print(mass)
+    return mass,names

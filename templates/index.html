@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="main-area">
+    <div class="top-text">Полнота данных</div>
+    <div id="map" style="">
+        <script>
+            var selected1=[]
+            let coords={{coords}};
+            let names='{{st_names}}';
+
+            map(coords,names);
+        </script>
+    </div>
+        <div class='form'>
+            <form id ='form' name="new_building" method="post">
+                <p>Выберите станцию:<br>
+                    <select id = 'station-select' name="station" class="ui dropdown">
+                        <option selected disabled></option>
+                        {% for i in stations %}
+                            <option value="{{ i[0] }}">{{  i[0]+' ('+(i[1])+')'  }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <div>
+                    <div class="two fields">
+                    <p>
+                        <div class="field">
+                        <label>Дата начала:</label>
+                        <div class="ui calendar" id="rangestart">
+                          <div class="ui input left icon">
+                            <i class="calendar icon"></i>
+                            <input type="text" placeholder="Start" name="period1">
+                          </div>
+                        </div>
+                    </div></p>
+                    <p>
+                        <div class="field">
+                        <label>Дата конца:</label>
+                        <div class="ui calendar" id="rangeend">
+                          <div class="ui input left icon">
+                            <i class="calendar icon"></i>
+                            <input type="text" placeholder="End" name="period2">
+                          </div>
+                        </div>
+                      </div></p>
+                    </div>
+                </div><br>
+            {% for k in types%}
+                <p>Тип {{loop.index}}:<br>
+                    <select name="multi-select" class="ui selection dropdown" multiple="" id="multi-select{{ loop.index }}">
+                      <option value=""></option>
+                            {% for i in k %}
+                                <option value="{{ i}}">{{ i}}</option>
+                            {% endfor %}
+                    </select>
+                </p>
+            {% endfor %}
+                <p><input type="hidden" name="att"></p>
+                <p><button onclick="sendarray()" id = 'button1' value="button1" name = 'button1' type= "submit" >Найти</button></p>
+            </form>
+        </div>
+        <script>
+            dropdowns();
+        </script>
+        <div class = 'top-text'>Результаты поиска</div>
+        <div class="bot-text">Всего полей: {{ params[0] }}<br> Значения имеются (True): {{ params[1] }}<br> Значений нет (False): {{ params[2] }}<br> Процент: {{ params[3] }}%</div>
+        <div class = "wrapper">
+            {% for k in names%}
+            <div class="accordion">
+                <div class="accordion-item">
+                    {% set count =  loop.index%}
+                    <input class = 'accordion-item_input' type="checkbox" id="accordion-{{ count }}">
+                    {% if info[count-1]|length>0 %}
+                    <label class="accordion-item_trigger_false" for="accordion-{{ loop.index }}">
+                        {{ k }} True: {{truecount[count-1][0]}} False: {{falsecount[count-1][0]}}
+                    </label>
+                    {% else %}
+                    <label class="accordion-item_trigger_true" for="accordion-{{ loop.index }}">
+                        {{ k }} True: {{truecount[count-1][0]}} False: {{falsecount[count-1][0]}}
+                    </label>
+                    {% endif %}
+                    <input class = 'accordion-item_input' type="checkbox" id="accordion-{{ count }}">
+                    <div class="accordion-item_content" >
+                        <table class = 'table' id = 'table'>
+                         <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Station</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Long_name</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                         </thead>
+                        <tbody>
+                        {% for i in info[count-1] %}
+                                    <tr>
+                                        <td>{{i[0]}}</td>
+                                        <td>{{station}}</td>
+                                        <td>{{i[2]}}</td>
+                                        <td>{{i[3]}}</td>
+                                        <td>{{i[4]}}</td>
+                                        <td>{{i[5]}}</td>
+                                    </tr>
+                        {% endfor %}
+                        </tbody>
+                        </table>
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}

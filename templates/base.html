@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang = 'eng'>
+<head>
+    {% block head %}{% endblock %}
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssandjs/main.css') }}">
+    <script src="{{ url_for('static', filename='cssandjs/sendarray.js') }}"></script>
+    <script src="{{ url_for('static', filename='cssandjs/findmapstation.js') }}"></script>
+    <script src="{{ url_for('static', filename='cssandjs/stationforward.js') }}"></script>
+    <script src="{{ url_for('static', filename='cssandjs/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='cssandjs/dropdownd.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
+    <style>
+        #map {margin: 0 auto 0; width: 100%; height: 350px;padding-bottom: 20px}
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="/" class = 'text'>Полнота даннных</a>
+        <a href="/add" class = 'text'>Добавление в БД</a>
+    </div>
+</header>
+{% block body %}{% endblock %}
+
+</body>
+</html>
