@@ -1,7 +1,5 @@
-from database_func.parsing import test, parsing_func, readfiles,nameses,ru_station,parse_by_header
-from database_func.database import addfield, addstation, findstations,createtables, searchstation, createnamestable, deletetables
+from database_func.parsing import test, parsing_func, parse_by_header
 import psycopg2
-import requests
 
 desc,names1,names2= test.main()
 def main(data):

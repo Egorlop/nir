@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 from database_func.database import findtypes,datetime,coordsandnames,query,deletetables,infoaboutfields,createtables,createnamestable,droptables
 from database_func import nir
 from database_func.parsing import test
+
 desc,names1,names2= test.main()
 app = Flask(__name__)
 UPLOAD_FOLDER = 'D:\data'
