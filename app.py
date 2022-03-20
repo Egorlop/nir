@@ -24,7 +24,6 @@ if __name__ == '__main__':
 def find_fields():
     types = findtypes.findtypes(connection)
     coords, st_names,stats,fields_names = coordsandnames.coordsandnames(connection)
-    names = ['СНЕПВЫСМ', 'ТЕМПППВС', 'ТОЧКАРОС  1']
     if request.method == 'POST':
         stat = request.form['station']
         period1, period2 = datetime.date(request.form['period1'], request.form['period2'] )
