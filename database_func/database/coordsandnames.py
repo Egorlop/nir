@@ -17,7 +17,7 @@ def coordsandnames(connection):
         else:
             k=i[1]
         if k[5]=='0':
-            k=i[1][0:5]+'11'
+            k=i[1][0:5]+'1'+i[1][6]
         if k[6]=='1':
             k=k[0:3]+'1'+k[3:]
             coords.append([(int(k[0:3]) / 10), (int(k[3:7])/10)])

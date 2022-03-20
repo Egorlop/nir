@@ -77,7 +77,7 @@ def parser():
                             data.append(hex(i)[2:])
                         elif len(hex(i)[2:]) == 1:
                             data.append('0' + hex(i)[2:])
-                    nir.main(data[0:10000])
+                    nir.main(data)
                     mes2 = 'Данные введены в БД'
                 else:
                     mes3='Данный файл уже есть в БД'
