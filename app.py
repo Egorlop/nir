@@ -16,6 +16,9 @@ connection = psycopg2.connect(
 )
 connection.autocommit = True
 
+def create_app():
+    if __name__ == '__main__':
+        app.run(debug=False)
 
 @app.route('/', methods=['POST', 'GET'])
 
@@ -35,8 +38,6 @@ def find_fields():
         return render_template('index.html',info=[],station='',stations=stats,names=[],fields_names=fields_names, falsecount=0, truecount=0,types=types,coords=coords,st_names=st_names,params=[0,0,0,0])
 
 
-if __name__ == '__main__':
-    app.run(debug=False)
 
 @app.route('/add', methods=['POST', 'GET'])
 
