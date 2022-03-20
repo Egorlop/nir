@@ -16,9 +16,8 @@ connection = psycopg2.connect(
 )
 connection.autocommit = True
 
-def create_app():
-    if __name__ == '__main__':
-        app.run(debug=False)
+if __name__ == '__main__':
+    app.run(debug=False)
 
 @app.route('/', methods=['POST', 'GET'])
 
