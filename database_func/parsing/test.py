@@ -43,6 +43,7 @@ def parseGRV1(dict,type):
 def main():
     with open(os.path.dirname(os.path.abspath(__file__))+"/Tms.ddl", 'r') as f:
         dict = f.read()
+        print(dict[0:200])
     names = []
     dict1=dict.split('\n')
     dict1 = dict1[9:]
