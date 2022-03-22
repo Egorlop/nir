@@ -17,7 +17,7 @@ def main(data,connection):
         print('#' + str(count) + ".", header)
         #print('data:', header_message_payload)
         #print('after parse:', mass)
-        #print('offset:', offset, len(data), '\n')
+        print('offset:', offset, len(data), '\n')
         count+=1
     print('[INFO] Connection closed2')
     #12671011

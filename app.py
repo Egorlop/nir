@@ -18,8 +18,8 @@ connection = psycopg2.connect(
     user='tudblunfvemyop', password='3500c1988c90cd7ecf44e57c5468def04053e37d10e4c64698165c51f6e3e60b', host='ec2-52-19-170-215.eu-west-1.compute.amazonaws.com', port='5432', database='dbp32ou9fqe7nn'
 )
 connection.autocommit = True
-createtables.createtables(connection)
-createnamestable.createnamestable(connection, names1, names2)
+#createtables.createtables(connection)
+#createnamestable.createnamestable(connection, names1, names2)
 
 if __name__ == '__main__':
     app.run()
@@ -82,7 +82,7 @@ def parser():
                             data.append(hex(i)[2:])
                         elif len(hex(i)[2:]) == 1:
                             data.append('0' + hex(i)[2:])
-                    nir.main(data[0:4000],connection)
+                    nir.main(data[0:7000],connection)
                     mes2 = 'Данные введены в БД'
                 else:
                     mes3='Данный файл уже есть в БД'
