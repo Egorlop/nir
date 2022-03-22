@@ -53,7 +53,7 @@ def parser():
         if request.form.get('button1') == 'button1':
             deletetables.deletetables(connection)
             end, start, stats = infoaboutfields.infoaboutfields(connection)
-            mes1='Данные успешно удалены'
+            mes1='Данные успешно удалены '
         elif request.form.get('button2') == 'button2':
             droptables.droptables(connection)
             createtables.createtables(connection)
