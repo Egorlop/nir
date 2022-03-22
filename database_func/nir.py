@@ -2,12 +2,9 @@ from database_func.parsing import test, parsing_func, parse_by_header
 import psycopg2
 
 desc,names1,names2= test.main()
-def main(data):
+def main(data,connection):
     count=1
     offset = 0
-    connection = psycopg2.connect(
-        user='postgres', password='qwerty', host='localhost', port='5433', database='NIR'
-    )
     connection.autocommit = True
     #deletetables.deletetables(connection)
     #createtables.createtables(connection)

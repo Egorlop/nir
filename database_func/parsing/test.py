@@ -44,7 +44,6 @@ def parseGRV1(dict,type):
 def main():
     with open(os.path.dirname(os.path.abspath(__file__))+"/Tms.ddl", 'r',encoding='windows-1251') as f:
         dict = f.read()
-        print(dict)
     names = []
     dict1=dict.split('\n')
     dict1 = dict1[9:]
