@@ -15,9 +15,9 @@ def main(data,connection):
         mass=parse_by_header.parse(header,header_message_payload, desc,connection)
         offset = offset + header['msg_len']
         print('#' + str(count) + ".", header)
-        print('data:', header_message_payload)
-        print('after parse:', mass)
-        print('offset:', offset, len(data), '\n')
+        #print('data:', header_message_payload)
+        #print('after parse:', mass)
+        #print('offset:', offset, len(data), '\n')
         count+=1
     print('[INFO] Connection closed2')
     #12671011
