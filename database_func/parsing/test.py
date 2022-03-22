@@ -41,7 +41,7 @@ def parseGRV1(dict,type):
             'translate':dict[0][dict[0].find('//')+2:dict[0].find('\n')]+dict[0][dict[0].find('\n')]}
 
 def main():
-    with open(os.path.dirname(os.path.abspath(__file__))+"\Tms.ddl", 'r') as f:
+    with open(os.path.dirname(os.path.abspath(__file__))+"/Tms.ddl", 'r') as f:
         dict = f.read()
     names = []
     dict1=dict.split('\n')
