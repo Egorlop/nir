@@ -7,7 +7,7 @@ def createtables(connection):
             print(f'Server version: {cursor.fetchone()}')
         with connection.cursor() as cursor:
             cursor.execute(
-                '''CREATE TABLE Names(
+                '''CREATE TABLE names(
                 id serial PRIMARY KEY,
                 short_name varchar(15),
                 long_name varchar(60),

@@ -12,5 +12,6 @@ def createnamestable(connection,names1,names2):
                 data = (i[0],i[1],i[2])
                 cursor.execute(query, data)
             return stations
+        print('NAMES TABLE CREATED')
     except Exception as _ex:
         print('[INFO] Error: ', _ex)
