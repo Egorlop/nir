@@ -1,5 +1,6 @@
 from database_func.parsing import nameses
 import os
+import codecs
 def parseGRP1(dict):
     data = {}
     off=0
@@ -41,9 +42,9 @@ def parseGRV1(dict,type):
             'translate':dict[0][dict[0].find('//')+2:dict[0].find('\n')]+dict[0][dict[0].find('\n')]}
 
 def main():
-    with open(os.path.dirname(os.path.abspath(__file__))+"/Tms.ddl", 'r') as f:
+    with open(os.path.dirname(os.path.abspath(__file__))+"/Tms.ddl", 'r',encoding='windows-1251') as f:
         dict = f.read()
-        print(dict[0:200])
+        print(dict)
     names = []
     dict1=dict.split('\n')
     dict1 = dict1[9:]
