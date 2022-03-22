@@ -9,8 +9,11 @@ from database_func.parsing import test
 
 desc,names1,names2= test.main()
 app = Flask(__name__)
-UPLOAD_FOLDER = 'D:\data'
+UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# connection = psycopg2.connect(
+#     user='postgres', password='qwerty', host='localhost', port='5433', database='NIR'
+# )
 connection = psycopg2.connect(
     user='tudblunfvemyop', password='3500c1988c90cd7ecf44e57c5468def04053e37d10e4c64698165c51f6e3e60b', host='ec2-52-19-170-215.eu-west-1.compute.amazonaws.com', port='5432', database='dbp32ou9fqe7nn'
 )
@@ -68,10 +71,10 @@ def parser():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             with open(app.config['UPLOAD_FOLDER']+'/'+filename, 'rb') as f:
                 file_content = f.read()
-            with open("D:\dip\database_func\parsing/files.txt", 'r') as file:
+            with open(app.config['UPLOAD_FOLDER']+'/database_func/parsing/files.txt', 'r') as file:
                 files = file.read()
             files_names=files.split("\n")
-            with open("D:\dip\database_func\parsing/files.txt", "a+") as file:
+            with open(app.config['UPLOAD_FOLDER']+'/database_func/parsing/files.txt', "a+") as file:
                 if filename not in files_names:
                     file.write(filename+"\n")
                     for i in file_content:
@@ -79,7 +82,7 @@ def parser():
                             data.append(hex(i)[2:])
                         elif len(hex(i)[2:]) == 1:
                             data.append('0' + hex(i)[2:])
-                    nir.main(data,connection)
+                    nir.main(data[0:4000],connection)
                     mes2 = 'Данные введены в БД'
                 else:
                     mes3='Данный файл уже есть в БД'

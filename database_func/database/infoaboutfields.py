@@ -16,3 +16,4 @@ def infoaboutfields(connection):
         )
         stats=cursor.fetchone()
     return end[0],start[0],stats[0]
+

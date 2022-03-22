@@ -19,7 +19,6 @@ def main(data,connection):
         print('after parse:', mass)
         print('offset:', offset, len(data), '\n')
         count+=1
-    connection.close()
     print('[INFO] Connection closed2')
     #12671011
 
